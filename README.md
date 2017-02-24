@@ -1,6 +1,6 @@
 ## prmsParameterizer
 ===
-Random code aimed at generating parameters for USGS PRMS model.
+Random code aimed at generating parameters for the USGS PRMS model.
 
 # THIS CODE IS NOT PRODUCTION QUALITY AND IS PRESENTED AS AN EXAMPLE ONLY!
 
