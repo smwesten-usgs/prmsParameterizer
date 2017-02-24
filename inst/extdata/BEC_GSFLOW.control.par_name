@@ -1,0 +1,1760 @@
+Program MMS                     
+============
+
+Printout of parameters.
+
+Parameter file: ./BEC.params
+
+Parameter file for PRMS/GSFLOW
+
+
+--------------- DIMENSIONS ---------------
+
+Name  : mxnsos
+Value : 0
+Desc  : Maximum number of storage/outflow table values for channel storage reservoir using Puls routing
+
+Name  : ncascade
+Value : 824
+Desc  : Number of subareas of all HRUs for cascading flow
+
+Name  : ncascdgw
+Value : 909
+Desc  : Number of subareas of all GWRs for cascading flow
+
+Name  : ndays
+Value : 366
+Desc  : Number of days in a year
+
+Name  : ndepl
+Value : 1
+Desc  : Number of snow depletion curves
+
+Name  : ndeplval
+Value : 11
+Desc  : ndepl * 11
+
+Name  : nevap
+Value : 0
+Desc  : Number of pan evaporation data sets
+
+Name  : nform
+Value : 0
+Desc  : Number of form_data input values. This has a max of 1 but is an array to satisy a readvar requirement. Set to 0 if no form_data are included in the input file.
+
+Name  : ngroup
+Value : 0
+Desc  : Number of HRU groupings
+
+Name  : ngw
+Value : 780
+Desc  : Number of groundwater reservoirs
+
+Name  : ngwcell
+Value : 107440
+Desc  : Number of cells in the GW model
+
+Name  : nhru
+Value : 780
+Desc  : Number of hydrologic response units
+
+Name  : nhrucell
+Value : 107440
+Desc  : Number of unique intersections between SSRs and GW cells
+
+Name  : nlapse
+Value : 1
+Desc  : Number of lapse rates in X, Y, and Z directions
+
+Name  : nmonths
+Value : 12
+Desc  : Number of months in a year
+
+Name  : nobs
+Value : 1
+Desc  : Number of stream measurement stations
+
+Name  : nrain
+Value : 1
+Desc  : Number of precipitation gages
+
+Name  : nreach
+Value : 3465
+Desc  : Number of reaches on all stream segments
+
+Name  : nsegment
+Value : 74
+Desc  : Number of stream channel segments
+
+Name  : nsfres
+Value : 0
+Desc  : Number of on-channel storage reservoirs
+
+Name  : nsnow
+Value : 0
+Desc  : Number of snow measurement stations
+
+Name  : nsol
+Value : 0
+Desc  : Number of solar radiation stations
+
+Name  : nssr
+Value : 780
+Desc  : Number of subsurface reservoirs
+
+Name  : nsub
+Value : 6
+Desc  : Number of internal subbasins
+
+Name  : ntemp
+Value : 1
+Desc  : Number of air-temperature measurement stations
+
+Name  : one
+Value : 1
+Desc  : Default dimension with value 1
+Fixed
+
+--------------- PARAMETERS ---------------
+
+Name      : adjmix_rain
+Module    : precip
+Descr     : Adjustment factor for rain in a rain/snow mix
+Help      : Monthly factor to adjust rain proportion in a mixed rain/snow event
+Ndimen    : 1
+Dimensions: nmonths - 12
+Size      : 12
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 3.000000
+Min       : 0.000000
+Default   : 1.000000
+
+Name      : albset_rna
+Module    : snow
+Descr     : Albedo reset - rain, accumulation stage
+Help      : Proportion of rain in a rain-snow precipitation event above which the snow albedo is not reset. Applied during the snowpack accumulation stage.
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.800000
+
+Name      : albset_rnm
+Module    : snow
+Descr     : Albedo reset - rain,  melt stage
+Help      : Proportion of rain in a rain-snow precipitation event above which the snow albedo is not reset. Applied during the snowpack melt stage
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.600000
+
+Name      : albset_sna
+Module    : snow
+Descr     : Albedo reset - snow, accumulation stage
+Help      : Minimum snowfall, in water equivalent, needed to reset snow albedo during the snowpack accumulation stage
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 1.000000
+Min       : 0.001000
+Default   : 0.050000
+
+Name      : albset_snm
+Module    : snow
+Descr     : Albedo reset - snow, melt stage
+Help      : Minimum snowfall, in water equivalent, needed to reset snow albedo during the snowpack melt stage
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 1.000000
+Min       : 0.001000
+Default   : 0.200000
+
+Name      : basin_area
+Module    : basin
+Descr     : Basin area
+Help      : Total basin area
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : acres
+Width     : 10
+Max       : 1000000000.000000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : basin_cfs_init
+Module    : gsfbud
+Descr     : Initial basin streamflow
+Help      : Initial basin streamflow, required if the first timestep is a storm period timestep
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : cfs
+Width     : 10
+Max       : 1000000000.000000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : basin_tsta
+Module    : temp
+Descr     : Index of main temperature station
+Help      : Index of temperature station used to compute basin temperature values
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 1
+Bounded   : ntemp
+
+Name      : carea_max
+Module    : srunoff
+Descr     : Maximum contributing area
+Help      : Maximum possible area contributing to surface runoff expressed as a portion of the HRU area
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.600000
+
+Name      : cascade_flg
+Module    : cascade
+Descr     : Flag to indicate cascade type
+Help      : Flag to indicate cascade type (0=allow many to many; 1=force one to one)
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 0
+
+Name      : cascade_tol
+Module    : cascade
+Descr     : Cascade area below which a cascade is ignored.
+Help      : Cascade area below which a cascade is ignored.
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : acres
+Width     : 10
+Max       : 99.000000
+Min       : 0.000000
+Default   : 5.000000
+
+Name      : cecn_coef
+Module    : snow
+Descr     : Convection condensation energy coefficient
+Help      : Convection condensation energy coefficient, varied monthly
+Ndimen    : 1
+Dimensions: nmonths - 12
+Size      : 12
+Type      : float
+Units     : calories per degree C above 0
+Width     : 10
+Max       : 20.000000
+Min       : 0.000000
+Default   : 5.000000
+
+Name      : cov_type
+Module    : intcp
+Descr     : Cover type designation for HRU
+Help      : Vegetation cover type designation for HRU (0=bare soil; 1=grasses; 2=shrubs; 3=trees)
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : long
+Units     : none
+Width     : 10
+Max       : 3
+Min       : 0
+Default   : 3
+
+Name      : covden_sum
+Module    : intcp
+Descr     : Summer vegetation cover density for major vegetation type
+Help      : Summer vegetation cover density for the major vegetation type on each HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.500000
+
+Name      : covden_win
+Module    : intcp
+Descr     : Winter vegetation cover density for major vegetation type
+Help      : Winter vegetation cover density for the major vegetation type on each HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.500000
+
+Name      : dday_intcp
+Module    : solrad
+Descr     : Intercept in temperature degree-day relationship
+Help      : Intercept in relationship: dd-coef = dday_intcp + dday_slope*(tmax)+1.
+Ndimen    : 1
+Dimensions: nmonths - 12
+Size      : 12
+Type      : float
+Units     : dday
+Width     : 10
+Max       : 4.000000
+Min       : -60.000000
+Default   : -10.000000
+
+Name      : dday_slope
+Module    : solrad
+Descr     : Slope in temperature degree-day relationship
+Help      : Coefficient in relationship: dd-coef = dday_intcp + dday_slope*(tmax)+1.
+Ndimen    : 1
+Dimensions: nmonths - 12
+Size      : 12
+Type      : float
+Units     : dday/degree
+Width     : 10
+Max       : 0.700000
+Min       : 0.200000
+Default   : 0.400000
+
+Name      : den_init
+Module    : snow
+Descr     : Initial density of new-fallen snow
+Help      : Initial density of new-fallen snow
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : gm/cm3
+Width     : 10
+Max       : 0.500000
+Min       : 0.010000
+Default   : 0.100000
+
+Name      : den_max
+Module    : snow
+Descr     : Average maximum snowpack density
+Help      : Average maximum snowpack density
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : gm/cm3
+Width     : 10
+Max       : 0.800000
+Min       : 0.100000
+Default   : 0.600000
+
+Name      : emis_noppt
+Module    : snow
+Descr     : Emissivity of air on days without precipitation
+Help      : Average emissivity of air on days without precipitation
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.757000
+Default   : 0.757000
+
+Name      : epan_coef
+Module    : intcp
+Descr     : Evaporation pan coefficient
+Help      : Evaporation pan coefficient
+Ndimen    : 1
+Dimensions: nmonths - 12
+Size      : 12
+Type      : float
+Units     : none
+Width     : 10
+Max       : 3.000000
+Min       : 0.200000
+Default   : 1.000000
+
+Name      : fastcoef_lin
+Module    : soilzone
+Descr     : Linear preferential-flow routing coefficient
+Help      : Coefficient to route preferential-flow storage down slope using the following equation:  pref_flow = fastcoef_lin * pref_flow_stor + fastcoef_sq * pref_flow_stor**2
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : 1/day
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.100000
+
+Name      : fastcoef_sq
+Module    : soilzone
+Descr     : Non-linear preferential-flow routing coefficient
+Help      : Coefficient to route preferential-flow storage down slope using the following equation:  pref_flow = fastcoef_lin * pref_flow_stor + fastcoef_sq * pref_flow_stor**2
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : none
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.800000
+
+Name      : freeh2o_cap
+Module    : snow
+Descr     : Free-water holding capacity of snowpack
+Help      : Free-water holding capacity of snowpack expressed as a decimal fraction of the frozen water content of the snowpack (pk_ice)
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 0.200000
+Min       : 0.010000
+Default   : 0.050000
+
+Name      : group_flg
+Module    : hrugrps
+Descr     : Flag to compute group flow
+Help      : Flag indicating if group flow is computed (0=no; 1=yes)
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 4
+Max       : 1
+Min       : 0
+Default   : 1
+
+Name      : gvr_cell_id
+Module    : gsfconv
+Descr     : Corresponding MODFLOW cell id of each GVR
+Help      : Index of the MODFLOW cell associated with each gravity reservoir
+Ndimen    : 1
+Dimensions: nhrucell - 107440
+Size      : 107440
+Type      : long
+Units     : none
+Width     : 10
+Max       : 107440
+Min       : 0
+Default   : 0
+Bounded   : ngwcell
+
+Name      : gvr_cell_pct
+Module    : gsfconv
+Descr     : Proportion of the MODFLOW cell associated with each GVR
+Help      : Proportion of the MODFLOW cell area associated with each gravity reservoir
+Ndimen    : 1
+Dimensions: nhrucell - 107440
+Size      : 107440
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : gvr_hru_id
+Module    : soilzone
+Descr     : Corresponding HRU id of each GVR
+Help      : Index of the HRU assocated with each gravity reservoir
+Ndimen    : 1
+Dimensions: nhrucell - 107440
+Size      : 107440
+Type      : long
+Units     : none
+Width     : 10
+Max       : 780
+Min       : 0
+Default   : 1
+Bounded   : nhru
+
+Name      : gvr_hru_pct
+Module    : soilzone
+Descr     : Proportion of the HRU associated with each GVR
+Help      : Proportion of the HRU area associated with each gravity reservoir
+Ndimen    : 1
+Dimensions: nhrucell - 107440
+Size      : 107440
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : gwflow_coef
+Module    : gwflow
+Descr     : Groundwater routing coefficient
+Help      : Groundwater routing coefficient - is multiplied by the storage in the groundwater reservoir to compute groundwater flow contribution to down-slope flow
+Ndimen    : 1
+Dimensions: ngw - 780
+Size      : 780
+Type      : float
+Units     : 1/day
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.015000
+
+Name      : gwsink_coef
+Module    : gwflow
+Descr     : Groundwater sink coefficient
+Help      : Groundwater sink coefficient - is multiplied by the storage in the groundwater reservoir to compute the seepage from each reservoir to the groundwater sink.
+Ndimen    : 1
+Dimensions: ngw - 780
+Size      : 780
+Type      : float
+Units     : 1/day
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : gwstor_init
+Module    : gwflow
+Descr     : Initial storage in each gw reservoir
+Help      : Storage in each groundwater reservoir at the beginning of a simulation
+Ndimen    : 1
+Dimensions: ngw - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 20.000000
+Min       : 0.000000
+Default   : 0.100000
+
+Name      : hru_area
+Module    : basin
+Descr     : HRU area
+Help      : Area of each HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : acres
+Width     : 10
+Max       : 1000000000.000000
+Min       : 0.010000
+Default   : 1.000000
+
+Name      : hru_aspect
+Module    : soltab
+Descr     : HRU aspect
+Help      : Aspect of each HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : degrees
+Width     : 10
+Max       : 360.000000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : hru_deplcrv
+Module    : snow
+Descr     : Index number for snowpack areal depletion curve
+Help      : Index number for the snowpack areal depletion curve associated with an HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 1
+Bounded   : ndepl
+
+Name      : hru_down_id
+Module    : cascade
+Descr     : HRU index of down slope HRU.
+Help      : HRU index number of the down slope HRU to which the HRU subarea contributes flow. If 0, that cascade is leaves the basin and the cascade flow is apportioned to other cascades from the HRU
+Ndimen    : 1
+Dimensions: ncascade - 824
+Size      : 824
+Type      : long
+Units     : none
+Width     : 10
+Max       : 780
+Min       : 0
+Default   : 1
+Bounded   : nhru
+
+Name      : hru_elev
+Module    : temp
+Descr     : HRU mean elevation
+Help      : Mean elevation for each HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : elev_units
+Width     : 10
+Max       : 30000.000000
+Min       : -300.000000
+Default   : 0.000000
+
+Name      : hru_lat
+Module    : soltab
+Descr     : HRU latitude
+Help      : Latitude of each HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : degrees
+Width     : 10
+Max       : 90.000000
+Min       : -90.000000
+Default   : 40.000000
+
+Name      : hru_pct_up
+Module    : cascade
+Descr     : Percentage of HRU area associated with cascade area.
+Help      : Percentage of HRU area used to compute flow contributed to a down slope HRU or stream segment for cascade area.
+Ndimen    : 1
+Dimensions: ncascade - 824
+Size      : 824
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 1.000000
+
+Name      : hru_percent_imperv
+Module    : basin
+Descr     : HRU percent impervious
+Help      : Proportion of each HRU area that is impervious
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 0.990000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : hru_psta
+Module    : precip
+Descr     : Index of base precipitation station for HRU
+Help      : Index of the base precipitation station used for lapse rate calculattions for each HRU.
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 1
+Bounded   : nrain
+
+Name      : hru_slope
+Module    : soltab
+Descr     : HRU slope
+Help      : Slope of each HRU, specified as change in vertical length divided by change in horizontal length
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 10.000000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : hru_strmseg_down_id
+Module    : cascade
+Descr     : Stream segment index that cascade area contributes flow.
+Help      : Stream segment index that cascade area contributes flow.
+Ndimen    : 1
+Dimensions: ncascade - 824
+Size      : 824
+Type      : long
+Units     : none
+Width     : 10
+Max       : 74
+Min       : 0
+Default   : 0
+Bounded   : nsegment
+
+Name      : hru_subbasin
+Module    : hrugrps
+Descr     : Index of subbasin assigned to each HRU
+Help      : Index of subbasin assigned to each HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : long
+Units     : none
+Width     : 10
+Max       : 6
+Min       : 0
+Default   : 0
+Bounded   : nsub
+
+Name      : hru_tsta
+Module    : obsadj
+Descr     : Index of base temperature station for HRU
+Help      : Index of the base temperature station used for lapse rate calculations
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 1
+Bounded   : ntemp
+
+Name      : hru_type
+Module    : basin
+Descr     : HRU type
+Help      : Type of each HRU (0=inactive; 1=land; 2=lake; 3=swale)
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : long
+Units     : none
+Width     : 10
+Max       : 3
+Min       : 0
+Default   : 1
+
+Name      : hru_up_id
+Module    : cascade
+Descr     : Index of HRU containing cascade area.
+Help      : Index of HRU containing cascade area.
+Ndimen    : 1
+Dimensions: ncascade - 824
+Size      : 824
+Type      : long
+Units     : none
+Width     : 10
+Max       : 780
+Min       : 0
+Default   : 1
+Bounded   : nhru
+
+Name      : id_obsrunoff
+Module    : gsflow_sum
+Descr     : Index of basin outlet observed runoff station
+Help      : Index of basin outlet observed runoff station
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 0
+Bounded   : nobs
+
+Name      : imperv_stor_max
+Module    : srunoff
+Descr     : HRU maximum impervious area retention storage
+Help      : Maximum impervious area retention storage for each HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 10.000000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : jh_coef
+Module    : potet
+Descr     : Monthly air temp coefficient - Jensen-Haise
+Help      : Monthly air temperature coefficient used in Jensen-Haise potential evapotranspiration computations, see PRMS manual for calculation method
+Ndimen    : 1
+Dimensions: nmonths - 12
+Size      : 12
+Type      : float
+Units     : per degrees
+Width     : 10
+Max       : 0.060000
+Min       : 0.005000
+Default   : 0.014000
+
+Name      : jh_coef_hru
+Module    : potet
+Descr     : HRU air temp coefficient - Jensen-Haise
+Help      : Air temperature coefficient used in Jensen-Haise potential evapotranspiration computations for each HRU.  See PRMS manual for calculation method
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : per degrees
+Width     : 10
+Max       : 20.000000
+Min       : 5.000000
+Default   : 13.000000
+
+Name      : lake_hru_id
+Module    : prms2mf
+Descr     : MODFLOW lake associated with each HRU
+Help      : Index of the MODFLOW lake associated with each HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : long
+Units     : none
+Width     : 10
+Max       : 780
+Min       : 0
+Default   : 0
+Bounded   : nhru
+
+Name      : local_reachid
+Module    : prms2mf
+Descr     : Map of the global reach ids to reach ids of each segment
+Help      : Index of stream reach within a stream segment for each stream reach
+Ndimen    : 1
+Dimensions: nreach - 3465
+Size      : 3465
+Type      : long
+Units     : none
+Width     : 4
+Max       : 3465
+Min       : 0
+Default   : 0
+Bounded   : nreach
+
+Name      : melt_force
+Module    : snow
+Descr     : Julian date to force snowpack to spring snowmelt stage
+Help      : Julian date to force snowpack to spring snowmelt stage; varies with region depending on length of time that permanent snowpack exists
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : Julian day
+Width     : 10
+Max       : 366
+Min       : 1
+Default   : 90
+
+Name      : melt_look
+Module    : snow
+Descr     : Julian date to start looking for spring snowmelt
+Help      : Julian date to start looking for spring snowmelt stage. Varies with region depending on length of time that permanent snowpack exists
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : Julian day
+Width     : 10
+Max       : 366
+Min       : 1
+Default   : 90
+
+Name      : moyrsum
+Module    : hru_sum
+Descr     : Switch for HRU monthly and yearly summary
+Help      : Switch for HRU monthly and yearly summary (0=off, 1=on)
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 0
+
+Name      : mxsziter
+Module    : gsflow_modflow
+Descr     : Maximum number of iterations soilzone states are computed
+Help      : Maximum number of iterations soilzone states are computed
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 200
+Min       : 2
+Default   : 15
+
+Name      : numreach_segment
+Module    : prms2mf
+Descr     : Number of reaches in each segment
+Help      : Number of stream reaches in each stream segment
+Ndimen    : 1
+Dimensions: nsegment - 74
+Size      : 74
+Type      : long
+Units     : none
+Width     : 10
+Max       : 3465
+Min       : 0
+Default   : 0
+Bounded   : nreach
+
+Name      : objfunc_q
+Module    : sumb
+Descr     : Index of runoff station used in objective function calc.
+Help      : Index of the runoff station used as the observed runoff variable in the objective function calculation
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 0
+Bounded   : nobs
+
+Name      : outlet_sta
+Module    : sumb
+Descr     : Index of observed station to use for basin outlet
+Help      : Index of observed station to use for basin outlet
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 0
+Bounded   : nobs
+
+Name      : pmo
+Module    : hru_sum
+Descr     : Month to print HRU summary
+Help      : Month to print HRU summary
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 12
+Min       : 0
+Default   : 0
+
+Name      : potet_sublim
+Module    : intcp
+Descr     : Proportion of potential ET that is sublimated from snow surface
+Help      : Proportion of potential ET that is sublimated from snow surface
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 0.750000
+Min       : 0.100000
+Default   : 0.500000
+
+Name      : ppt_rad_adj
+Module    : solrad
+Descr     : Radiation reduced if basin precip above this value
+Help      : If basin precip exceeds this value, radiation is mutiplied by summer or winter precip adjustment 
+Ndimen    : 1
+Dimensions: nmonths - 12
+Size      : 12
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 0.500000
+Min       : 0.000000
+Default   : 0.020000
+
+Name      : precip_units
+Module    : precip
+Descr     : Units for observed precipitation
+Help      : Units for observed precipitation (0=inches; 1=mm)
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 0
+
+Name      : pref_flow_den
+Module    : soilzone
+Descr     : Preferential-flow pore density
+Help      : Preferential-flow pore density
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.200000
+
+Name      : print_freq
+Module    : sumb
+Descr     : Frequency for output data file
+Help      : Output data file (0=none; 1=run totals; 2=yearly; 4=monthly; 8=daily; or additive combinations) For combinations, add index numbers, e.g., daily plus yearly = 10; yearly plus total = 3
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 15
+Min       : 0
+Default   : 1
+
+Name      : print_objfunc
+Module    : sumb
+Descr     : Switch to turn objective function printing off and on
+Help      : Print objective functions (0=no; 1=yes)
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 0
+
+Name      : print_type
+Module    : sumb
+Descr     : Type of output data file
+Help      : Output data file (0=observed and predicted flow only; 1=water balance table; 2=detailed output)
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 2
+Min       : 0
+Default   : 1
+
+Name      : rad_trncf
+Module    : snow
+Descr     : Solar radiation transmission coefficient
+Help      : Transmission coefficient for short-wave radiation through the winter vegetation canopy
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.500000
+
+Name      : radadj_intcp
+Module    : solrad
+Descr     : Intercept in temperature range adjustment to solar radiation
+Help      : Intercept in equation: adj = radadj_intcp + radadj_slope*(tmax-tmax_index)
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : dday
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 1.000000
+
+Name      : radadj_slope
+Module    : solrad
+Descr     : Slope in temperature range adjustment to solar radiation
+Help      : Slope in equation: adj = radadj_intcp + radadj_slope * (tmax - tmax_index)
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : dday/degree
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : radj_sppt
+Module    : solrad
+Descr     : Adjustment to solar radiation on precip day - summer
+Help      : Adjustment factor for computed solar radiation for summer day with greater than ppt_rad_adj inches precip
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.440000
+
+Name      : radj_wppt
+Module    : solrad
+Descr     : Adjustment to solar radiation on precip day - winter
+Help      : Adjustment factor for computed solar radiation for winter day with greater than ppt_rad_adj inches precip
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.500000
+
+Name      : radmax
+Module    : solrad
+Descr     : Maximum percent of potential solar radiation (decimal)
+Help      : The maximum portion of the potential solar radiation that may reach the ground due to haze, dust, smog, etc.
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.100000
+Default   : 0.800000
+
+Name      : rain_adj
+Module    : precip
+Descr     : Rain adjustment factor, by month for each HRU
+Help      : Monthly factor to adjust measured precipitation on each HRU to account for differences in elevation, etc
+Ndimen    : 2
+Dimensions: nhru - 780, nmonths - 12
+Size      : 9360
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 5.000000
+Min       : 0.200000
+Default   : 1.000000
+
+Name      : reach_segment
+Module    : prms2mf
+Descr     : Map of the stream reaches to the stream segments
+Help      : Index of stream segment associate with each stream reach
+Ndimen    : 1
+Dimensions: nreach - 3465
+Size      : 3465
+Type      : long
+Units     : none
+Width     : 4
+Max       : 74
+Min       : 0
+Default   : 0
+Bounded   : nsegment
+
+Name      : runoff_units
+Module    : gsflow_sum
+Descr     : Observed runoff units
+Help      : Observed runoff units (0=cfs; 1=cms)
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 0
+
+Name      : sat_threshold
+Module    : soilzone
+Descr     : Soil saturation threshold, above field-capacity threshold
+Help      : Soil saturation threshold, above field-capacity threshold
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 999.000000
+Min       : 1.000000
+Default   : 999.000000
+
+Name      : segment_pct_area
+Module    : prms2mf
+Descr     : HRU contributing area percent mapped to each reach
+Help      : Proportion of the HRU area that contributes flow to a stream reach
+Ndimen    : 1
+Dimensions: nreach - 3465
+Size      : 3465
+Type      : float
+Units     : decimal fraction
+Width     : 4
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : settle_const
+Module    : snow
+Descr     : Snowpack settlement time constant
+Help      : Snowpack settlement time constant
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 0.500000
+Min       : 0.010000
+Default   : 0.100000
+
+Name      : slowcoef_lin
+Module    : soilzone
+Descr     : Linear gravity-flow reservoir routing coefficient
+Help      : Coefficient to route gravity-flow storage down slope using the following equation:  ssres_flow = slowcoef_lin * ssres_stor + slowcoef_sq * ssres_stor**2
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : 1/day
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.015000
+
+Name      : slowcoef_sq
+Module    : soilzone
+Descr     : Non-linear gravity-flow reservoir routing coefficient
+Help      : Coefficient to route gravity-flow storage down slope using the following equation:  ssres_flow = slowcoef_lin * ssres_stor + slowcoef_sq * ssres_stor**2
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : none
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.100000
+
+Name      : smidx_coef
+Module    : srunoff
+Descr     : Coefficient in contributing area computations
+Help      : Coefficient in non-linear contributing area algorithm. Equation used is: contributing area = smidx_coef * 10.**(smidx_exp*smidx) where smidx is soil_moist + .5 * ppt_net
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000100
+Default   : 0.010000
+
+Name      : smidx_exp
+Module    : srunoff
+Descr     : Exponent in contributing area computations
+Help      : Exponent in non-linear contributing area algorithm. Equation used is: contributing area = smidx_coef * 10.**(smidx_exp*smidx) where smidx is soil_moist + .5 * ppt_net
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : 1/inch
+Width     : 10
+Max       : 0.800000
+Min       : 0.200000
+Default   : 0.300000
+
+Name      : snarea_curve
+Module    : snow
+Descr     : Snow area depletion curve values
+Help      : Snow area depletion curve values, 11 values for each  curve (0 to 100 percent in 10 percent increments)
+Ndimen    : 1
+Dimensions: ndeplval - 11
+Size      : 11
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 1.000000
+
+Name      : snarea_thresh
+Module    : snow
+Descr     : Maximum threshold water equivalent for snow depletion
+Help      : The maximum threshold snowpack water equivalent below which the snow-covered-area curve is applied. Varies with elevation.
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 200.000000
+Min       : 0.000000
+Default   : 50.000000
+
+Name      : snow_adj
+Module    : precip
+Descr     : Snow adjustment factor, by month for each HRU
+Help      : Monthly factor to adjust measured precipitation on each HRU to account for differences in elevation, etc
+Ndimen    : 2
+Dimensions: nhru - 780, nmonths - 12
+Size      : 9360
+Type      : float
+Units     : decimal fraction
+Width     : 10
+Max       : 5.000000
+Min       : 0.200000
+Default   : 1.000000
+
+Name      : snow_intcp
+Module    : intcp
+Descr     : Snow interception storage capacity
+Help      : Snow interception storage capacity for the major vegetation type in each HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 5.000000
+Min       : 0.000000
+Default   : 0.100000
+
+Name      : snowinfil_max
+Module    : srunoff
+Descr     : Maximum snow infiltration per day
+Help      : Maximum snow infiltration per day
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : inches/day
+Width     : 10
+Max       : 20.000000
+Min       : 0.000000
+Default   : 2.000000
+
+Name      : soil2gw_max
+Module    : soilzone
+Descr     : Maximum value for soil water excess to groundwater
+Help      : The maximum amount of the soil water excess for an HRU that is routed directly to the associated groundwater reservoir each day
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     :  inches
+Width     : 10
+Max       : 5.000000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : soil_moist_init
+Module    : soilzone
+Descr     : Initial values of water for soil zone
+Help      : Initial value of available water in soil profile
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 20.000000
+Min       : 0.000000
+Default   : 3.000000
+
+Name      : soil_moist_max
+Module    : srunoff
+Descr     : Maximum value of water for soil zone
+Help      : Maximum available water holding capacity of soil profile. Soil profile is surface to bottom of rooting zone
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 20.000000
+Min       : 0.000000
+Default   : 6.000000
+
+Name      : soil_rechr_init
+Module    : soilzone
+Descr     : Initial value of water for soil recharge zone
+Help      : Initial value for soil recharge zone (upper part of soil_moist).  Must be less than or equal to soil_moist_init
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 10.000000
+Min       : 0.000000
+Default   : 1.000000
+
+Name      : soil_rechr_max
+Module    : soilzone
+Descr     : Maximum value for soil recharge zone
+Help      : Maximum value for soil recharge zone (upper portion of soil_moist where losses occur as both evaporation and transpiration).  Must be less than or equal to soil_moist
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 10.000000
+Min       : 0.000000
+Default   : 2.000000
+
+Name      : soil_type
+Module    : soilzone
+Descr     : HRU soil type
+Help      : HRU soil type (1=sand; 2=loam; 3=clay)
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : long
+Units     : none
+Width     : 10
+Max       : 3
+Min       : 1
+Default   : 2
+
+Name      : srain_intcp
+Module    : intcp
+Descr     : Summer rain interception storage capacity
+Help      : Summer rain interception storage capacity for the major vegetation type in each HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 5.000000
+Min       : 0.000000
+Default   : 0.100000
+
+Name      : ssr2gw_exp
+Module    : soilzone
+Descr     : Coefficient to route water from subsurface to groundwater
+Help      : Coefficient in equation used to route water from the subsurface reservoirs to the groundwater reservoirs:  ssr_to_gw = ssr2gw_rate *  ((ssres_stor / ssrmax_coef)**ssr2gw_exp); recommended value is 1.0
+Ndimen    : 1
+Dimensions: nssr - 780
+Size      : 780
+Type      : float
+Units     : none
+Width     : 10
+Max       : 3.000000
+Min       : 0.000000
+Default   : 1.000000
+
+Name      : ssr2gw_rate
+Module    : soilzone
+Descr     : Coefficient to route water from subsurface to groundwater
+Help      : Coefficient in equation used to route water from the subsurface reservoirs to the groundwater reservoirs:  ssr_to_gw = ssr2gw_rate * ((ssres_stor / ssrmax_coef)**ssr2gw_exp)
+Ndimen    : 1
+Dimensions: nssr - 780
+Size      : 780
+Type      : float
+Units     : 1/day
+Width     : 10
+Max       : 1.000000
+Min       : 0.000000
+Default   : 0.100000
+
+Name      : ssrmax_coef
+Module    : soilzone
+Descr     : Coefficient to route water from subsurface to groundwater
+Help      : Coefficient in equation used to route water from the subsurface reservoirs to the groundwater reservoirs:  ssr_to_gw = ssr2gw_rate * ((ssres_stor / ssrmax_coef)**ssr2gw_exp); recommended value is 1.0
+Ndimen    : 1
+Dimensions: nssr - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 20.000000
+Min       : 1.000000
+Default   : 1.000000
+
+Name      : ssstor_init
+Module    : soilzone
+Descr     : Initial storage in each subsurface reservoir
+Help      : Initial storage in each subsurface reservoir; estimated based on observed flow
+Ndimen    : 1
+Dimensions: nssr - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 20.000000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : subbasin_down
+Module    : hrugrps
+Descr     : Downstream subbasin for each subbasin
+Help      : Index number for the downstream subbasin whose inflow is outflow from this subbasin.
+Ndimen    : 1
+Dimensions: nsub - 6
+Size      : 6
+Type      : long
+Units     : none
+Width     : 10
+Max       : 6
+Min       : 0
+Default   : 0
+Bounded   : nsub
+
+Name      : szconverge
+Module    : prms2mf
+Descr     : Significant difference for checking soilzone states
+Help      : Significant difference for checking soilzone states
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 0.100000
+Min       : 0.000000
+Default   : 0.000000
+
+Name      : temp_units
+Module    : temp
+Descr     : Units for observed temperature
+Help      : Units for observed temperature (0=Fahrenheit; 1=Celsius)
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 0
+
+Name      : tmax_adj
+Module    : temp
+Descr     : HRU maximum temperature adjustment
+Help      : Adjustment to maximum temperature for each HRU, estimated based on slope and aspect
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : degrees
+Width     : 10
+Max       : 10.000000
+Min       : -10.000000
+Default   : 0.000000
+
+Name      : tmax_allrain
+Module    : obsadj
+Descr     : Precip all rain if HRU max temperature above this value
+Help      : If maximum temperature of an HRU is greater than or equal to this value (for each month, January to December), precipitation is assumed to be rain, in deg C or F, depending on units of data
+Ndimen    : 1
+Dimensions: nmonths - 12
+Size      : 12
+Type      : float
+Units     : degrees
+Width     : 10
+Max       : 90.000000
+Min       : 0.000000
+Default   : 40.000000
+
+Name      : tmax_allsnow
+Module    : precip
+Descr     : Precip all snow if HRU max temperature below this value
+Help      : If HRU maximum temperature is less than or equal to this value, precipitation is assumed to be snow, in deg C or F, depending on units of data
+Ndimen    : 1
+Dimensions: one - 1
+Size      : 1
+Type      : float
+Units     : degrees
+Width     : 10
+Max       : 40.000000
+Min       : -10.000000
+Default   : 32.000000
+
+Name      : tmax_index
+Module    : solrad
+Descr     : Monthly index temperature
+Help      : Index temperature used to determine precipitation adjustments to solar radiation, deg F or C depending on units of data
+Ndimen    : 1
+Dimensions: nmonths - 12
+Size      : 12
+Type      : float
+Units     : degrees
+Width     : 10
+Max       : 110.000000
+Min       : -10.000000
+Default   : 50.000000
+
+Name      : tmax_lapse
+Module    : temp
+Descr     : Monthly maximum temperature lapse rate
+Help      : Array of twelve values representing the change in maximum temperature per 1000 elev_units of elevation change for each month, January to December
+Ndimen    : 1
+Dimensions: nmonths - 12
+Size      : 12
+Type      : float
+Units     : degrees
+Width     : 10
+Max       : 10.000000
+Min       : -10.000000
+Default   : 3.000000
+
+Name      : tmin_adj
+Module    : temp
+Descr     : HRU minimum temperature adjustment
+Help      : Adjustment to minimum temperature for each HRU, estimated based on slope and aspect
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : degrees
+Width     : 10
+Max       : 10.000000
+Min       : -10.000000
+Default   : 0.000000
+
+Name      : tmin_lapse
+Module    : temp
+Descr     : Monthly minimum temperature lapse rate
+Help      : Array of twelve values representing the change in minimum temperture per 1000 elev_units of elevation change for each month, January to December
+Ndimen    : 1
+Dimensions: nmonths - 12
+Size      : 12
+Type      : float
+Units     : degrees
+Width     : 10
+Max       : 10.000000
+Min       : -10.000000
+Default   : 3.000000
+
+Name      : transp_beg
+Module    : potet
+Descr     : Month to begin testing for transpiration
+Help      : Month to begin summing tmaxf for each HRU; when sum is >= to transp_tmax, transpiration begins
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : long
+Units     : month
+Width     : 10
+Max       : 12
+Min       : 1
+Default   : 4
+
+Name      : transp_end
+Module    : potet
+Descr     : Month to stop transpiration period
+Help      : Month to stop transpiration computations; transpiration is computed thru end of previous month
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : long
+Units     : month
+Width     : 10
+Max       : 12
+Min       : 1
+Default   : 10
+
+Name      : transp_tmax
+Module    : potet
+Descr     : Tmax index to determine start of transpiration
+Help      : Temperature index to determine the specific date of the start of the transpiration period.  Subroutine sums tmax for each HRU starting with the first day of month transp_beg.  When the sum exceeds this index, transpiration begins
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : degrees
+Width     : 10
+Max       : 1000.000000
+Min       : 0.000000
+Default   : 500.000000
+
+Name      : tsta_elev
+Module    : temp
+Descr     : Temperature station elevation
+Help      : Elevation of each temperature measurement station
+Ndimen    : 1
+Dimensions: ntemp - 1
+Size      : 1
+Type      : float
+Units     : elev_units
+Width     : 10
+Max       : 30000.000000
+Min       : -300.000000
+Default   : 0.000000
+
+Name      : tstorm_mo
+Module    : snow
+Descr     : Set to 1 if thunderstorms prevalent during month
+Help      : Monthly indicator for prevalent storm type (0=frontal storms prevalent; 1=convective storms prevalent)
+Ndimen    : 1
+Dimensions: nmonths - 12
+Size      : 12
+Type      : long
+Units     : none
+Width     : 10
+Max       : 1
+Min       : 0
+Default   : 0
+
+Name      : wrain_intcp
+Module    : intcp
+Descr     : Winter rain interception storage capacity
+Help      : Winter rain interception storage capacity for the major vegetation type in the HRU
+Ndimen    : 1
+Dimensions: nhru - 780
+Size      : 780
+Type      : float
+Units     : inches
+Width     : 10
+Max       : 5.000000
+Min       : 0.000000
+Default   : 0.100000

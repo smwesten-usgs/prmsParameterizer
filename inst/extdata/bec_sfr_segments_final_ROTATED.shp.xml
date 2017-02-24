@@ -1,0 +1,3 @@
+<?xml version="1.0"?>
+<!--<!DOCTYPE metadata SYSTEM "http://www.esri.com/metadata/esriprof80.dtd">-->
+<metadata xml:lang="en"><Esri><MetaID>{6B3099D5-3F07-4517-BE36-23E4F56A68AE}</MetaID><CreaDate>20081218</CreaDate><CreaTime>12094800</CreaTime><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="C:\ArcGIS\ArcToolbox\Toolboxes\Conversion Tools.tbx\RasterToPolygon" Date="20081218" Time="120948">RasterToPolygon D:\SMWData\Weasel\bec_dec15\parameterization\bec_sfr D:\SMWData\Arcview\Shapefiles\Black_Earth_Creek\BEC_SFR_Segments_FINAL.shp NO_SIMPLIFY VALUE</Process></lineage></DataProperties></Esri></metadata>

@@ -1,0 +1,28 @@
+Package: prmsParameterizer
+Type: Package
+Title: prmsParameterizer: sample code aimed at generating parameters for the USGS PRMS model.
+Version: 0.1.0
+Authors@R: c( person("Steve", "Westenbroek", role = c("aut","cre"),
+    email = "smwesten@usgs.gov") )
+Description:
+    This is a collection of functions and scripts that demonstrate how the R scripting language
+    may be used along with gridded datasets to generate a set of distrubuted parameters for the
+    USGS PRMS model. One clear benefit of using a scripting language to generate PRMS parameters is
+    that the process is somewhat self-documenting; in other words, rather than a collection of unrecorded
+    calculations in the PRMS GUI, the script requires one to write out an explicit set of rules to be used
+    in the parameter generation.
+License: CC0
+Depends: R (>= 3.0)
+Imports:
+    lubridate (>= 1.5.0),
+    gWidgets2,
+    gWidgets2RGtk2,
+    RGtk2,
+    gdata
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Roxygen: list(markdown = TRUE)
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
